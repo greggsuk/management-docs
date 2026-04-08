@@ -127,7 +127,17 @@
         }
 
         h1 { font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
-        h2 { margin-top: 40px; font-size: 1.8rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        h3 { margin-top: 25px; font-size: 1.3rem; color: var(--text-main); }
+        
+        p, ul { line-height: 1.6; font-size: 16px; color: #3b454e; }
+
+        .hint {
+            background: #e7f3fe;
+            border-left: 4px solid var(--gitbook-blue);
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
 
         .code-block {
             background: #282c34;
@@ -164,15 +174,13 @@
         }
         .nav-card:hover { border-color: var(--gitbook-blue); }
         
-        /* Solo "previous" y "next" en minúsculas */
         .nav-card span { 
             display: block; 
             font-size: 12px; 
             color: var(--text-light); 
-            text-transform: lowercase; 
+            text-transform: lowercase; /* Solo previous/next en minúscula */
         }
         
-        /* Los nombres de las secciones (Management Shift, etc.) en formato normal */
         .nav-card div { 
             font-weight: 600; 
             color: var(--gitbook-blue); 
@@ -212,51 +220,88 @@
         
         <div id="page-introduction" class="page-content active">
             <h1>Management Shift Guidelines</h1>
-            <p>Welcome to the official management shift protocols for Greggs UK.</p>
+            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers. Adherence to these guidelines is <strong>mandatory</strong>.</p>
+            <h3>What is the main objective of shifts?</h3>
+            <ul>
+                <li>Maintain operational excellence within Greggs UK.</li>
+                <li>Identify and recognize the <strong>Star of the Shift (SOTS)</strong>.</li>
+                <li>Facilitate promotion recommendations.</li>
+            </ul>
         </div>
 
         <div id="page-roles" class="page-content">
             <h1>Shift Roles</h1>
             <table>
                 <thead>
-                    <tr><th>Role Name</th><th>Rank Requirement</th><th>Tasks & Responsibilities</th><th>Limit</th></tr>
+                    <tr>
+                        <th>Role Name</th>
+                        <th>Rank Requirement</th>
+                        <th>Tasks & Responsibilities</th>
+                        <th>Limit</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+</td><td>Assigns staff roles and oversees session.</td><td>1</td></tr>
-                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+</td><td>Assists host and manages operations.</td><td>1</td></tr>
-                    <tr><td><strong>Overseer</strong></td><td>Store Manager+ (HQ Perms)</td><td>Monitors protocol compliance.</td><td>1</td></tr>
+                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+</td><td>Assigns staff roles and oversees the entire session.</td><td>1</td></tr>
+                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+</td><td>Assists the host and manages ground operations.</td><td>1</td></tr>
+                    <tr><td><strong>Overseer</strong></td><td>Store Manager+ (HQ Perms)</td><td>Monitors protocol and management compliance.</td><td>1</td></tr>
+                    <tr><td><strong>POS Handler</strong></td><td>Any Rank+</td><td>Handles transactions and assists customers.</td><td>4</td></tr>
+                    <tr><td><strong>Orders Handler</strong></td><td>Any Rank+</td><td>Responsible for preparing order requests.</td><td>3</td></tr>
+                    <tr><td><strong>Greeter</strong></td><td>Any Rank+</td><td>Welcomes customers and directs them.</td><td>2</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div id="page-announcement" class="page-content">
             <h1>Announcement Time</h1>
+            <p>Before beginning, the Host must alert the server via the command bar.</p>
+            <div class="hint">Protocol: You are permitted to execute the announcement a maximum of 3 times.</div>
             <div class="code-block">/sannounce</div>
         </div>
 
         <div id="page-starting" class="page-content">
             <h1>Starting Time</h1>
-            <div class="code-block">"Welcome to today's shift session."</div>
+            <h3>Host & Co-Host Dialogue:</h3>
+            <div class="code-block">
+                "Welcome to today's shift session."<br>
+                "I am [Name], and I will be acting as your Host for today's session."
+            </div>
+            <div class="code-block">
+                "I am [Name], and I will be your Co-Host for today's session."
+            </div>
+            <h3>Session Rules:</h3>
+            <div class="code-block">
+                "1. You must remain at your assigned station at all times."<br>
+                "2. Professionalism is required throughout the entire session."<br>
+                "3. Do not request role changes without prior permission."
+            </div>
         </div>
 
         <div id="page-assignment" class="page-content">
             <h1>Roles Assignment</h1>
-            <div class="code-block">"Proceed to your stations."</div>
+            <div class="code-block">
+                "You are now dismissed. Please proceed to your designated stations immediately."
+            </div>
         </div>
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
-            <div class="code-block">"Report back to the shift room."</div>
+            <p>Once the shift concludes, the management team must regroup.</p>
+            <div class="code-block">
+                "All staff members, please report to the shift room once your area is cleared."
+            </div>
         </div>
 
         <div id="page-sots" class="page-content">
             <h1>Star Of The Shift</h1>
-            <p>Selection based on performance.</p>
+            <p>Recognize the individual who showed the best performance.</p>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
-            <div class="code-block">"You are officially dismissed. Thank you!"</div>
+            <p>Formally end the session and thank the staff.</p>
+            <div class="code-block">
+                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
+            </div>
         </div>
 
         <div class="footer-nav">
