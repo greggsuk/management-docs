@@ -56,18 +56,41 @@
 
         .sidebar-nav { list-style: none; padding: 0; margin: 0; }
 
+        /* Contenedor del item principal con flecha */
+        .nav-parent-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .nav-parent-wrapper:hover { background: #f5f7f9; }
+
         .nav-item {
+            flex-grow: 1;
             padding: 10px 24px;
             font-size: 14px;
             color: var(--text-light);
-            cursor: pointer;
-            display: block;
             text-decoration: none;
-            transition: all 0.2s;
-            border-right: 3px solid transparent;
+            display: block;
         }
 
-        /* Estilo para sub-items (anidados) */
+        .arrow-btn {
+            color: var(--text-light);
+            transition: transform 0.3s;
+            padding: 10px;
+        }
+        .arrow-btn.rotated { transform: rotate(-90deg); }
+
+        /* Sub-items */
+        #sub-menu-container {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 500px; /* Ajustar según contenido */
+        }
+        #sub-menu-container.collapsed { max-height: 0; }
+
         .nav-sub-item {
             padding: 8px 24px 8px 45px;
             font-size: 13.5px;
@@ -79,8 +102,6 @@
             border-right: 3px solid transparent;
         }
 
-        .nav-item:hover, .nav-sub-item:hover { background: #f5f7f9; color: var(--gitbook-blue); }
-        
         .nav-item.active, .nav-sub-item.active {
             color: var(--gitbook-blue);
             background: #eef5ff;
@@ -108,11 +129,7 @@
 
         h1 { font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
         h2 { margin-top: 40px; font-size: 1.8rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
-        h3 { margin-top: 25px; font-size: 1.3rem; color: var(--text-main); }
         
-        p { line-height: 1.6; font-size: 16px; color: #3b454e; }
-        ul, ol { line-height: 1.8; color: #3b454e; }
-
         .hint {
             background: #e7f3fe;
             border-left: 4px solid var(--gitbook-blue);
@@ -128,7 +145,6 @@
             border-radius: 8px;
             font-family: 'Consolas', monospace;
             margin: 15px 0;
-            line-height: 1.5;
             border: 1px solid #3e4451;
         }
 
@@ -153,10 +169,9 @@
             transition: all 0.2s;
             cursor: pointer;
         }
-
         .nav-card:hover { border-color: var(--gitbook-blue); }
         .nav-card span { display: block; font-size: 12px; color: var(--text-light); }
-        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; text-transform: capitalize; }
+        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -169,78 +184,59 @@
         
         <div class="section-title">Guidelines</div>
         <ul class="sidebar-nav">
-            <li><a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">Management Shift</a></li>
+            <li class="nav-parent-wrapper">
+                <a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">Management Shift</a>
+                <i class="fa-solid fa-chevron-down arrow-btn" id="menu-arrow" onclick="toggleMenu(event)"></i>
+            </li>
             
-            <li><a onclick="navigate('roles')" id="link-roles" class="nav-sub-item">Shift Roles</a></li>
-            <li><a onclick="navigate('announcement')" id="link-announcement" class="nav-sub-item">Announcement Time</a></li>
-            <li><a onclick="navigate('starting')" id="link-starting" class="nav-sub-item">Starting Time</a></li>
-            <li><a onclick="navigate('assignment')" id="link-assignment" class="nav-sub-item">Roles Assignment</a></li>
-            <li><a onclick="navigate('ending')" id="link-ending" class="nav-sub-item">Ending Time</a></li>
-            <li><a onclick="navigate('sots')" id="link-sots" class="nav-sub-item">Star of the Shift</a></li>
-            <li><a onclick="navigate('dismissal')" id="link-dismissal" class="nav-sub-item">Dismissal Time</a></li>
+            <div id="sub-menu-container">
+                <li><a onclick="navigate('roles')" id="link-roles" class="nav-sub-item">Shift Roles</a></li>
+                <li><a onclick="navigate('announcement')" id="link-announcement" class="nav-sub-item">Announcement Time</a></li>
+                <li><a onclick="navigate('starting')" id="link-starting" class="nav-sub-item">Starting Time</a></li>
+                <li><a onclick="navigate('assignment')" id="link-assignment" class="nav-sub-item">Roles Assignment</a></li>
+                <li><a onclick="navigate('ending')" id="link-ending" class="nav-sub-item">Ending Time</a></li>
+                <li><a onclick="navigate('sots')" id="link-sots" class="nav-sub-item">Star of the Shift</a></li>
+                <li><a onclick="navigate('dismissal')" id="link-dismissal" class="nav-sub-item">Dismissal Time</a></li>
+            </div>
         </ul>
     </aside>
 
     <main id="content">
-        <div class="breadcrumb" id="breadcrumb">Docs > Guidelines > Management Shift</div>
+        <div class="breadcrumb" id="breadcrumb">Docs > Management Shift > Introduction</div>
         
         <div id="page-introduction" class="page-content active">
             <h1>Management Shift Guidelines</h1>
-            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers. Adherence to these guidelines is <strong>mandatory</strong> for all Greggs UK Management personnel.</p>
-            <h3>What is the main objective of shifts?</h3>
-            <ul>
-                <li>Maintain operational excellence within Greggs UK while supervising personnel.</li>
-                <li>Identify and recognize the <strong>Star of the Shift (SOTS)</strong>.</li>
-                <li>Facilitate promotion recommendations for deserving staff if HQ is present.</li>
-            </ul>
-            <div class="hint">Your role as a management member is crucial in upholding Greggs UK standards. Always supervise those attending your shift with professionalism.</div>
+            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers.</p>
+            <div class="hint">Adherence to these guidelines is mandatory for all Greggs UK Management personnel.</div>
         </div>
 
         <div id="page-roles" class="page-content">
             <h1>Shift Roles</h1>
             <table>
-                <thead>
-                    <tr>
-                        <th>Role Name</th>
-                        <th>Rank / Tasks</th>
-                        <th>Limit</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Role</th><th>Rank / Responsibility</th><th>Limit</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+. Oversees the entire session.</td><td>1</td></tr>
-                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+. Assists host with ground operations.</td><td>1</td></tr>
-                    <tr><td><strong>Overseer</strong></td><td>Store Manager+ (with HQ permission). Monitors the shift.</td><td>1</td></tr>
-                    <tr><td><strong>POS Handler</strong></td><td>Any rank+. Handles transactions and customers.</td><td>4</td></tr>
-                    <tr><td><strong>Orders Handler</strong></td><td>Any rank+. Responsible for preparing all orders.</td><td>3</td></tr>
-                    <tr><td><strong>Greeter</strong></td><td>Any rank+. Welcomes customers upon entry.</td><td>2</td></tr>
+                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+. Oversees the session.</td><td>1</td></tr>
+                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+. Assists ground operations.</td><td>1</td></tr>
+                    <tr><td><strong>POS Handler</strong></td><td>Any rank+. Handles transactions.</td><td>4</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div id="page-announcement" class="page-content">
             <h1>Announcement Time</h1>
-            <p>The Host must alert the server via the command bar before starting.</p>
-            <div class="hint"><strong>Protocol:</strong> Maximum of 3 announcements permitted per shift.</div>
-            <div class="code-block">sannounce [Your Message]</div>
+            <p>Execute the following command in the command bar to notify the server:</p>
+            <div class="code-block">/sannounce</div>
         </div>
 
         <div id="page-starting" class="page-content">
             <h1>Starting Time</h1>
-            <h3>Host Dialogue:</h3>
+            <h3>Host & Co-Host Introduction:</h3>
             <div class="code-block">
                 "Welcome to today's shift session."<br>
-                "I am [Name], and I will be acting as your Host for today's session."
+                "I am [Name], acting as your Host for today's session."
             </div>
-            <h3>Co-Host Dialogue:</h3>
             <div class="code-block">
-                "I am [Name], and I will be your Co-Host for today's session."
-            </div>
-            <h3>Session Rules:</h3>
-            <div class="code-block">
-                "1. Remain at your assigned station at all times."<br>
-                "2. Professionalism is required throughout the session."<br>
-                "3. Do not request role changes without permission."<br><br>
-                "With that being said, [Co-Host Name] and I will now assign your roles."
+                "I am [Name], and I will be your Co-Host."
             </div>
         </div>
 
@@ -253,7 +249,6 @@
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
-            <p>Evaluation phase for the management team.</p>
             <div class="code-block">
                 "All staff members, please report to the shift room once your area is cleared."
             </div>
@@ -262,24 +257,21 @@
         <div id="page-sots" class="page-content">
             <h1>Star of the Shift (SOTS)</h1>
             <p>Announce the winner in your own style to encourage the team.</p>
-            <div class="hint">Reward the most professional and efficient member.</div>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
             <div class="code-block">
-                "You are officially dismissed. Thank you for your hard work. We hope to see you at the next one!"
+                "You are officially dismissed. Thank you for your hard work!"
             </div>
         </div>
 
         <div class="footer-nav">
             <a id="prev-btn" class="nav-card" style="visibility: hidden;">
-                <span>Previous</span>
-                <div id="prev-label">-</div>
+                <span>Previous</span><div id="prev-label">-</div>
             </a>
             <a id="next-btn" class="nav-card" style="text-align: right;">
-                <span>Next</span>
-                <div id="next-label">-</div>
+                <span>Next</span><div id="next-label">-</div>
             </a>
         </div>
     </main>
@@ -287,11 +279,17 @@
     <script>
         const menuOrder = ['introduction', 'roles', 'announcement', 'starting', 'assignment', 'ending', 'sots', 'dismissal'];
 
+        function toggleMenu(event) {
+            event.stopPropagation(); // Evita navegar al hacer clic solo en la flecha
+            const container = document.getElementById('sub-menu-container');
+            const arrow = document.getElementById('menu-arrow');
+            container.classList.toggle('collapsed');
+            arrow.classList.toggle('rotated');
+        }
+
         function navigate(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
-            
-            // Limpiar clases active de todos los links
             document.querySelectorAll('.nav-item, .nav-sub-item').forEach(p => p.classList.remove('active'));
             document.getElementById('link-' + pageId).classList.add('active');
 
@@ -299,21 +297,21 @@
             document.getElementById('breadcrumb').innerText = `Docs > Management Shift > ${cleanName}`;
             document.getElementById('tab-title').innerText = `${cleanName} | Greggs UK Management`;
 
+            // Lógica Footer
             const currentIndex = menuOrder.indexOf(pageId);
             const prevBtn = document.getElementById('prev-btn');
             if (currentIndex > 0) {
                 prevBtn.style.visibility = 'visible';
-                prevBtn.querySelector('div').innerText = menuOrder[currentIndex - 1].replace(/-/g, ' ');
+                prevBtn.querySelector('div').innerText = menuOrder[currentIndex - 1];
                 prevBtn.onclick = () => navigate(menuOrder[currentIndex - 1]);
             } else { prevBtn.style.visibility = 'hidden'; }
 
             const nextBtn = document.getElementById('next-btn');
             if (currentIndex < menuOrder.length - 1) {
                 nextBtn.style.visibility = 'visible';
-                nextBtn.querySelector('div').innerText = menuOrder[currentIndex + 1].replace(/-/g, ' ');
+                nextBtn.querySelector('div').innerText = menuOrder[currentIndex + 1];
                 nextBtn.onclick = () => navigate(menuOrder[currentIndex + 1]);
             } else { nextBtn.style.visibility = 'hidden'; }
-
             window.scrollTo(0,0);
         }
     </script>
