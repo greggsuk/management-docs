@@ -67,8 +67,21 @@
             border-right: 3px solid transparent;
         }
 
-        .nav-item:hover { background: #f5f7f9; color: var(--gitbook-blue); }
-        .nav-item.active {
+        /* Estilo para sub-items (anidados) */
+        .nav-sub-item {
+            padding: 8px 24px 8px 45px;
+            font-size: 13.5px;
+            color: var(--text-light);
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-right: 3px solid transparent;
+        }
+
+        .nav-item:hover, .nav-sub-item:hover { background: #f5f7f9; color: var(--gitbook-blue); }
+        
+        .nav-item.active, .nav-sub-item.active {
             color: var(--gitbook-blue);
             background: #eef5ff;
             border-right: 3px solid var(--gitbook-blue);
@@ -154,25 +167,22 @@
             Greggs UK Management
         </a>
         
-        <div class="section-title">Core Guidelines</div>
+        <div class="section-title">Guidelines</div>
         <ul class="sidebar-nav">
-            <li><a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">1. Management Shift</a></li>
-            <li><a onclick="navigate('roles')" id="link-roles" class="nav-item">Shift Roles</a></li>
-        </ul>
-
-        <div class="section-title">Step-by-Step Process</div>
-        <ul class="sidebar-nav">
-            <li><a onclick="navigate('announcement')" id="link-announcement" class="nav-item">Announcement Time</a></li>
-            <li><a onclick="navigate('starting')" id="link-starting" class="nav-item">Starting Time</a></li>
-            <li><a onclick="navigate('assignment')" id="link-assignment" class="nav-item">Roles Assignment</a></li>
-            <li><a onclick="navigate('ending')" id="link-ending" class="nav-item">Ending Time</a></li>
-            <li><a onclick="navigate('sots')" id="link-sots" class="nav-item">Star of the Shift</a></li>
-            <li><a onclick="navigate('dismissal')" id="link-dismissal" class="nav-item">Dismissal Time</a></li>
+            <li><a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">Management Shift</a></li>
+            
+            <li><a onclick="navigate('roles')" id="link-roles" class="nav-sub-item">Shift Roles</a></li>
+            <li><a onclick="navigate('announcement')" id="link-announcement" class="nav-sub-item">Announcement Time</a></li>
+            <li><a onclick="navigate('starting')" id="link-starting" class="nav-sub-item">Starting Time</a></li>
+            <li><a onclick="navigate('assignment')" id="link-assignment" class="nav-sub-item">Roles Assignment</a></li>
+            <li><a onclick="navigate('ending')" id="link-ending" class="nav-sub-item">Ending Time</a></li>
+            <li><a onclick="navigate('sots')" id="link-sots" class="nav-sub-item">Star of the Shift</a></li>
+            <li><a onclick="navigate('dismissal')" id="link-dismissal" class="nav-sub-item">Dismissal Time</a></li>
         </ul>
     </aside>
 
     <main id="content">
-        <div class="breadcrumb" id="breadcrumb">Docs > Core Guidelines > Management Shift</div>
+        <div class="breadcrumb" id="breadcrumb">Docs > Guidelines > Management Shift</div>
         
         <div id="page-introduction" class="page-content active">
             <h1>Management Shift Guidelines</h1>
@@ -181,7 +191,7 @@
             <ul>
                 <li>Maintain operational excellence within Greggs UK while supervising personnel.</li>
                 <li>Identify and recognize the <strong>Star of the Shift (SOTS)</strong>.</li>
-                <li>Facilitate promotion recommendations for deserving low-command members if a Headquarters member is present.</li>
+                <li>Facilitate promotion recommendations for deserving staff if HQ is present.</li>
             </ul>
             <div class="hint">Your role as a management member is crucial in upholding Greggs UK standards. Always supervise those attending your shift with professionalism.</div>
         </div>
@@ -192,31 +202,30 @@
                 <thead>
                     <tr>
                         <th>Role Name</th>
-                        <th>Rank Requirement / Tasks</th>
+                        <th>Rank / Tasks</th>
                         <th>Limit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+. Assigns staff roles and oversees the entire session.</td><td>1</td></tr>
-                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+. Assists the host and manages ground operations.</td><td>1</td></tr>
-                    <tr><td><strong>Overseer</strong></td><td>Store Manager+ (with HQ permission). Monitors the entire shift and management performance.</td><td>1</td></tr>
-                    <tr><td><strong>POS Handler</strong></td><td>Any rank+. Handles transactions and assists customers.</td><td>4</td></tr>
-                    <tr><td><strong>Orders Handler</strong></td><td>Any rank+. Responsible for preparing all order requests.</td><td>3</td></tr>
-                    <tr><td><strong>Greeter</strong></td><td>Any rank+. Welcomes customers upon entry to the bakery.</td><td>2</td></tr>
+                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+. Oversees the entire session.</td><td>1</td></tr>
+                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+. Assists host with ground operations.</td><td>1</td></tr>
+                    <tr><td><strong>Overseer</strong></td><td>Store Manager+ (with HQ permission). Monitors the shift.</td><td>1</td></tr>
+                    <tr><td><strong>POS Handler</strong></td><td>Any rank+. Handles transactions and customers.</td><td>4</td></tr>
+                    <tr><td><strong>Orders Handler</strong></td><td>Any rank+. Responsible for preparing all orders.</td><td>3</td></tr>
+                    <tr><td><strong>Greeter</strong></td><td>Any rank+. Welcomes customers upon entry.</td><td>2</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div id="page-announcement" class="page-content">
             <h1>Announcement Time</h1>
-            <p>Before beginning the session, the Host must alert the server via the command bar.</p>
-            <div class="hint"><strong>Protocol:</strong> You are strictly permitted to execute the announcement command a maximum of 3 times per shift.</div>
+            <p>The Host must alert the server via the command bar before starting.</p>
+            <div class="hint"><strong>Protocol:</strong> Maximum of 3 announcements permitted per shift.</div>
             <div class="code-block">sannounce [Your Message]</div>
         </div>
 
         <div id="page-starting" class="page-content">
             <h1>Starting Time</h1>
-            <p>Adhere to the following dialogue exactly. Consistency is key to Greggs UK Management standards.</p>
             <h3>Host Dialogue:</h3>
             <div class="code-block">
                 "Welcome to today's shift session."<br>
@@ -228,18 +237,15 @@
             </div>
             <h3>Session Rules:</h3>
             <div class="code-block">
-                "Before we proceed with role assignments, please listen carefully to these rules:"<br>
-                "1. You must remain at your assigned station at all times."<br>
-                "2. Professionalism is required throughout the entire session."<br>
-                "3. Do not request role changes without prior permission."<br><br>
+                "1. Remain at your assigned station at all times."<br>
+                "2. Professionalism is required throughout the session."<br>
+                "3. Do not request role changes without permission."<br><br>
                 "With that being said, [Co-Host Name] and I will now assign your roles."
             </div>
         </div>
 
         <div id="page-assignment" class="page-content">
             <h1>Roles Assignment</h1>
-            <p>Assign each attendee exactly <strong>one</strong> role. Do not exceed the capacity limits established for each role.</p>
-            <h3>Dismissal:</h3>
             <div class="code-block">
                 "You are now dismissed. Please proceed to your designated stations immediately."
             </div>
@@ -247,11 +253,7 @@
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
-            <p>Once the shift concludes, the management team must regroup to evaluate performance.</p>
-            <ul>
-                <li>Discuss the selection for <strong>Star of the Shift</strong>.</li>
-                <li>Evaluate any promotion recommendations for the Headquarters team.</li>
-            </ul>
+            <p>Evaluation phase for the management team.</p>
             <div class="code-block">
                 "All staff members, please report to the shift room once your area is cleared."
             </div>
@@ -259,15 +261,14 @@
 
         <div id="page-sots" class="page-content">
             <h1>Star of the Shift (SOTS)</h1>
-            <p>The Star of the Shift recognition process does not require a fixed dialogue. You may announce it in a style that encourages the staff.</p>
-            <div class="hint">Reward the individual who demonstrated the highest level of professionalism and efficiency during the session.</div>
+            <p>Announce the winner in your own style to encourage the team.</p>
+            <div class="hint">Reward the most professional and efficient member.</div>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
-            <p>Following the SOTS announcement, formally dismiss all personnel.</p>
             <div class="code-block">
-                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
+                "You are officially dismissed. Thank you for your hard work. We hope to see you at the next one!"
             </div>
         </div>
 
@@ -289,11 +290,13 @@
         function navigate(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
-            document.querySelectorAll('.nav-item').forEach(p => p.classList.remove('active'));
+            
+            // Limpiar clases active de todos los links
+            document.querySelectorAll('.nav-item, .nav-sub-item').forEach(p => p.classList.remove('active'));
             document.getElementById('link-' + pageId).classList.add('active');
 
             const cleanName = document.getElementById('link-' + pageId).innerText;
-            document.getElementById('breadcrumb').innerText = `Docs > Section > ${cleanName}`;
+            document.getElementById('breadcrumb').innerText = `Docs > Management Shift > ${cleanName}`;
             document.getElementById('tab-title').innerText = `${cleanName} | Greggs UK Management`;
 
             const currentIndex = menuOrder.indexOf(pageId);
