@@ -138,22 +138,43 @@
             border-radius: 4px;
         }
 
+        /* --- COPY SYSTEM --- */
+        .copy-container {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: transparent;
+            border: none;
+            color: #9daab6;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+
+        .copy-btn:hover { color: var(--gitbook-blue); }
+
         .code-block {
             background: #282c34;
             color: #dcdfe4;
-            padding: 15px;
+            padding: 15px 15px 15px 40px;
             border-radius: 8px;
             font-family: 'Consolas', monospace;
-            margin: 15px 0;
             line-height: 1.5;
             border: 1px solid #3e4451;
+            white-space: pre-wrap;
         }
 
         table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
         th { background: #f8f9fa; text-align: left; padding: 12px; border-bottom: 2px solid var(--border-color); }
         td { padding: 12px; border-bottom: 1px solid var(--border-color); }
 
-        /* --- FOOTER (Previous/Next con Mayúscula) --- */
+        /* --- FOOTER --- */
         .footer-nav {
             display: flex;
             justify-content: space-between;
@@ -252,23 +273,43 @@
         <div id="page-announcement" class="page-content">
             <h1>Announcement Time</h1>
             <p>Before beginning the session, the Host must alert the server via the command bar.</p>
-            <div class="code-block">/sannounce</div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">/sannounce</div>
+            </div>
             <div class="hint">Protocol: You are permitted to execute the announcement a maximum of 3 times.</div>
         </div>
 
         <div id="page-starting" class="page-content">
             <h1>Starting Time</h1>
             <h3>Host Dialogue:</h3>
-            <div class="code-block">Welcome to today's shift session.<div>
-            <div class="code-block">I am [Name], and I will be acting as your Host for today's session.<div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">Welcome to today's shift session.</div>
+            </div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">I am [Name], and I will be acting as your Host for today's session.</div>
+            </div>
+            
             <h3>Co-Host Dialogue:</h3>
-            <div class="code-block">I am [Name], and I will be your Co-Host for today's session.<div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">I am [Name], and I will be your Co-Host for today's session.</div>
+            </div>
 
             <h3>Session Rules:</h3>
-            <div class="code-block">
-                "1. You must remain at your assigned station at all times."<br>
-                "2. Professionalism is required throughout the entire session."<br>
-                "3. Do not request role changes without prior permission."
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">1. You must remain at your assigned station at all times.</div>
+            </div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">2. Professionalism is required throughout the entire session.</div>
+            </div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">3. Do not request role changes without prior permission.</div>
             </div>
         </div>
 
@@ -278,16 +319,18 @@
             <div class="hint">
                 <strong>Host Note:</strong> Ensure that the number of staff members assigned to each role does not exceed the limit specified in the guidelines.
             </div>
-            <div class="code-block">
-                "You are now dismissed. Please proceed to your designated stations immediately according to the roles assigned."
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">You are now dismissed. Please proceed to your designated stations immediately according to the roles assigned.</div>
             </div>
         </div>
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
             <p>Once the shift concludes, call everyone back to the shift room.</p>
-            <div class="code-block">
-                "All staff members, please report to the shift room once your area is cleared."
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">All staff members, please report to the shift room once your area is cleared.</div>
             </div>
         </div>
 
@@ -300,17 +343,22 @@
                 <li>Consistency in following rank-specific tasks.</li>
             </ul>
             <h3>Announcement Dialogue:</h3>
-            <div class="code-block">
-                "After reviewing your performance today, we have selected a Star of the Shift."<br>
-                "Today's Star of the Shift is... [Staff Name]! Congratulations!"
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">After reviewing your performance today, we have selected a Star of the Shift.</div>
+            </div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">Today's Star of the Shift is... [Staff Name]! Congratulations!</div>
             </div>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
             <p>The final step is to formally conclude the session and dismiss the staff.</p>
-            <div class="code-block">
-                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!</div>
             </div>
             <div class="hint">
                 <strong>Important:</strong> If any management member attended your shift, please contact any headquarters member so that user can get quota. Failure to do so will result into improper hosting.
@@ -329,6 +377,17 @@
 
     <script>
         const menuOrder = ['introduction', 'roles', 'announcement', 'starting', 'assignment', 'ending', 'sots', 'dismissal'];
+
+        function copyText(btn) {
+            const text = btn.nextElementSibling.innerText;
+            navigator.clipboard.writeText(text);
+            
+            const icon = btn.querySelector('i');
+            icon.className = 'fa-solid fa-check';
+            setTimeout(() => {
+                icon.className = 'fa-regular fa-copy';
+            }, 2000);
+        }
 
         function toggleMenu(event) {
             event.stopPropagation();
