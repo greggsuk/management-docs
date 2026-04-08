@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GREGGS | Management Guidelines</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title id="tab-title">Management Guidelines | Greggs UK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0056b3;
+            --gitbook-blue: #3884ff;
             --sidebar-bg: #ffffff;
-            --text-main: #2c3e50;
-            --border: #e6ecf1;
-            --sidebar-width: 280px;
+            --border-color: #e6ecf1;
+            --text-main: #242a31;
+            --text-light: #5c6975;
+            --sidebar-width: 300px;
+            
             /* Punishment Colors */
             --tag-term: #d63031;
             --tag-strike: #e67e22;
@@ -20,172 +22,412 @@
             --tag-na: #b2bec3;
         }
 
-        body { margin: 0; font-family: 'Inter', sans-serif; display: flex; background: #fff; color: var(--text-main); }
+        body {
+            margin: 0;
+            font-family: "Inter", -apple-system, sans-serif;
+            color: var(--text-main);
+            display: flex;
+            background-color: #fff;
+        }
 
         /* --- SIDEBAR --- */
-        #sidebar { width: var(--sidebar-width); height: 100vh; background: var(--sidebar-bg); border-right: 1px solid var(--border); position: fixed; overflow-y: auto; }
-        .logo-box { padding: 30px; font-weight: 800; color: var(--primary); border-bottom: 1px solid var(--border); font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-        .nav-list { list-style: none; padding: 20px 0; margin: 0; }
-        .nav-item { padding: 12px 30px; font-size: 14px; color: #636e72; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: 0.2s; }
-        .nav-item:hover { background: #f8f9fa; color: var(--primary); }
-        .nav-item.active { background: #eef5ff; color: var(--primary); font-weight: 600; border-right: 4px solid var(--primary); }
+        #sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            overflow-y: auto;
+            padding: 24px 0;
+        }
 
-        /* --- CONTENT --- */
-        #content { margin-left: var(--sidebar-width); flex: 1; padding: 60px 80px; max-width: 900px; }
-        .page-content { display: none; animation: fadeIn 0.4s ease; }
+        .logo {
+            padding: 0 24px 20px 24px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .section-title {
+            padding: 15px 24px 5px 24px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #9daab6;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+
+        .nav-parent-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .nav-parent-wrapper:hover { background: #f5f7f9; }
+
+        .nav-item {
+            flex-grow: 1;
+            padding: 10px 24px;
+            font-size: 14px;
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+        }
+
+        .arrow-btn {
+            color: var(--text-light);
+            transition: transform 0.3s;
+            padding: 10px;
+            font-size: 12px;
+        }
+        .arrow-btn.rotated { transform: rotate(-90deg); }
+
+        #sub-menu-container {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 1000px;
+        }
+        #sub-menu-container.collapsed { max-height: 0; }
+
+        .nav-sub-item {
+            padding: 8px 24px 8px 45px;
+            font-size: 13.5px;
+            color: var(--text-light);
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-right: 3px solid transparent;
+        }
+
+        .nav-item.active, .nav-sub-item.active {
+            color: var(--gitbook-blue);
+            background: #eef5ff;
+            border-right: 3px solid var(--gitbook-blue);
+            font-weight: 600;
+        }
+
+        /* --- MAIN CONTENT --- */
+        #content {
+            margin-left: var(--sidebar-width);
+            width: 100%;
+            padding: 40px 60px;
+            max-width: 900px;
+        }
+
+        .breadcrumb { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
+
+        .page-content { display: none; animation: fadeIn 0.3s ease; }
         .page-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        h1 { font-size: 2.2rem; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; }
-        h3 { font-size: 1.1rem; color: var(--primary); margin-top: 30px; text-transform: uppercase; }
-        p, li { line-height: 1.8; font-size: 15px; margin-bottom: 15px; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* --- TAGS & TABLES --- */
-        .tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        h1 { font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        h2 { font-size: 1.8rem; margin-top: 35px; }
+        h3 { margin-top: 25px; font-size: 1.1rem; color: var(--gitbook-blue); text-transform: uppercase; }
+        p, ul, ol { line-height: 1.6; font-size: 16px; color: #3b454e; }
+
+        /* --- TAGS --- */
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
         .tag-term { background: #ffeaea; color: var(--tag-term); }
         .tag-strike { background: #fff4e6; color: var(--tag-strike); }
         .tag-verbal { background: #fef9e7; color: var(--tag-verbal); }
         .tag-na { background: #f1f2f6; color: var(--tag-na); }
 
-        .table-container { margin: 25px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-        table { width: 100%; border-collapse: collapse; }
-        th { background: #f8f9fa; padding: 15px; text-align: left; font-size: 12px; border-bottom: 1px solid var(--border); }
-        td { padding: 15px; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .hint {
+            background: #e7f3fe;
+            border-left: 4px solid var(--gitbook-blue);
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
 
-        .quote { font-style: italic; color: #b2bec3; text-align: center; margin: 40px 0; font-size: 1.2rem; }
-        .highlight { background: #fff9c4; padding: 2px 5px; font-weight: 600; }
+        .copy-container {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #9daab6;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+
+        .copy-btn:hover { color: var(--gitbook-blue); }
+
+        .code-block {
+            background: #282c34;
+            color: #dcdfe4;
+            padding: 15px 45px 15px 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            line-height: 1.5;
+            border: 1px solid #3e4451;
+            white-space: pre-wrap;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { background: #f8f9fa; text-align: left; padding: 12px; border-bottom: 2px solid var(--border-color); }
+        td { padding: 12px; border-bottom: 1px solid var(--border-color); }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-card {
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            padding: 15px 25px;
+            border-radius: 8px;
+            width: 45%;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .nav-card:hover { border-color: var(--gitbook-blue); }
+        .nav-card span { display: block; font-size: 12px; color: var(--text-light); }
+        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; }
     </style>
 </head>
 <body>
 
-<aside id="sidebar">
-    <div class="logo-box"><i class="fa-solid fa-bread-slice"></i> GREGGS MGMT</div>
-    <ul class="nav-list">
-        <li class="nav-item active" onclick="navigate('doc-info')">Document Information</li>
-        <li class="nav-item" onclick="navigate('mgmt-info')">Management Information</li>
-        <li class="nav-item" onclick="navigate('punishment')">Punishment Guidelines</li>
-        <li class="nav-item" onclick="navigate('ranks')">Ranks & Cooldowns</li>
-        <li class="nav-item" onclick="navigate('quota')">QUOTA Details</li>
-        <li class="nav-item" onclick="navigate('promotion')">Promotion Guidelines</li>
-    </ul>
-</aside>
-
-<main id="content">
-
-    <div id="page-doc-info" class="page-content active">
-        <h1>Document Information</h1>
-        <p>This document indicates that either your application was successfully approved or you got handpicked by any headquarters member. We are so happy to have you here! This document contains vital information about management within GREGGS.</p>
-        <p><strong>This document includes:</strong></p>
-        <ul>
-            <li>Information about Management</li>
-            <li>Guidelines for Punishment</li>
-            <li>Ranks of Management</li>
-            <li>QUOTA</li>
-            <li>Guidelines for Promotion</li>
+    <aside id="sidebar">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-shield-halved" style="color: var(--gitbook-blue)"></i>
+            Greggs UK Management
+        </a>
+        
+        <div class="section-title">Handbook</div>
+        <ul class="sidebar-nav">
+            <li class="nav-parent-wrapper">
+                <a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">Management Guidelines</a>
+                <i class="fa-solid fa-chevron-down arrow-btn" id="menu-arrow" onclick="toggleMenu(event)"></i>
+            </li>
+            
+            <div id="sub-menu-container">
+                <li><a onclick="navigate('management-info')" id="link-management-info" class="nav-sub-item">Management Information</a></li>
+                <li><a onclick="navigate('punishments')" id="link-punishments" class="nav-sub-item">Punishment Rules</a></li>
+                <li><a onclick="navigate('ranks')" id="link-ranks" class="nav-sub-item">Rank Structure</a></li>
+                <li><a onclick="navigate('quota')" id="link-quota" class="nav-sub-item">Quota Policy</a></li>
+                <li><a onclick="navigate('promotions')" id="link-promotions" class="nav-sub-item">Promotion Policy</a></li>
+            </div>
         </ul>
-        <div class="quote">“Always Fresh, Always Tasty”</div>
-    </div>
+    </aside>
 
-    <div id="page-mgmt-info" class="page-content">
-        <h1>Information about Management</h1>
-        <p>As you are aware, we have management here at GREGGS. The smooth operation of the game is made possible by those management members. </p>
-        <h3>Duties of Management:</h3>
-        <p>Your duties are simple. As listed before, you are required to help the game to go smoothly. We gave you permission to give some special commands. All those commands will be listed in the next sections.</p>
+    <main id="content">
+        <div class="breadcrumb" id="breadcrumb">Docs > Management Guidelines > Introduction</div>
         
-        <h3>Scenarios:</h3>
-        <p>We have a warning system on GREGGS in case you encounter any problems. Keep your composure and behave professionally. These things do happen, so you should respond appropriately. All the potential situations are listed here, along with advice on how to handle them.</p>
-        
-        <p><strong>In every game, there are trollers.</strong> They are suspects who have the viewpoint of an unprofessional person who hurts people in a place and who wishes to portray the game in the worst possible light, even though that is not how the game actually looks. In situations like this, the management staff should always remain composed and act professionally.</p>
-        <p>You should use “:warn” twice to warn the suspect. If the suspect continues with his/her behavior, you should use “:kick”. If they re-join and carry on with their behavior, you should use “:serverban”.</p>
-        
-        <p><strong>Exploiters:</strong> Although exploiters are common in supermarket roleplaying games, they are possible on GREGGS. You ought to contact the Chief Executive Officer or the Vice Chief Executive Officer right away. As soon as you can, you should take evidence. Although we don't anticipate this happening, this is to stop any kind of exploit from getting into our game.</p>
-        
-        <p><strong>Any small matter:</strong> Like a rude member, harassment of any kind, or anything that puts GREGGS in a terrible situation. The standard warning system should be used in conjunction with it. A server ban follows three warnings, followed by a kick.</p>
-        
-        <p>Always ask for assistance in the management chat channel if you need it for any of these situations.</p>
-    </div>
+        <div id="page-introduction" class="page-content active">
+            <h1>Introduction</h1>
+            <p>This document indicates that either your application was successfully approved or you got handpicked by any headquarters member. We are so happy to have you here! This document contains vital information about management within GREGGS.</p>
+            <h3>Contents of this Document</h3>
+            <ul>
+                <li>Information about Management</li>
+                <li>Guidelines for Punishment</li>
+                <li>Ranks of Management</li>
+                <li>QUOTA</li>
+                <li>Guidelines for Promotion</li>
+            </ul>
+            <div class="hint">"Always Fresh, Always Tasty"</div>
+        </div>
 
-    <div id="page-punishment" class="page-content">
-        <h1>Guidelines for Punishment</h1>
-        <p>We at GREGGS are particularly severe when it comes to punishment. When a staff or management member performs or avoids a punishment imposed by higher-ranking officials, no tolerance will be applied. Depending on how severe the punishment was, each one has its own set of alternatives. The most frequent and all possible punishments are listed here.</p>
-        
-        <div class="table-container">
+        <div id="page-management-info" class="page-content">
+            <h1>Information about Management</h1>
+            <p>As you are aware, we have management here at GREGGS. The smooth operation of the game is made possible by those management members.</p>
+            
+            <h3>Duties of Management</h3>
+            <p>Your duties are simple. As listed before, you are required to help the game to go smoothly. We gave you permission to give some special commands. All those commands will be listed in the next sections.</p>
+
+            <h3>Scenarios & Protocol</h3>
+            <p>We have a warning system on GREGGS in case you encounter any problems. Keep your composure and behave professionally. All the potential situations are listed here:</p>
+
+            <h3>Trollers</h3>
+            <p>Trollers are suspects who wish to portray the game in the worst possible light. Management should always remain composed.</p>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">1. Use :warn [Suspect] (Twice)
+2. If behavior continues, use :kick [Suspect]
+3. If they re-join and carry on, use :serverban [Suspect]</div>
+            </div>
+
+            <h3>Exploiters</h3>
+            <p>Exploiters are common in supermarket games. You ought to contact the Chief Executive Officer or the Vice Chief Executive Officer right away. Take evidence immediately to stop exploits from spreading.</p>
+
+            <h3>Small Matters</h3>
+            <p>Rude members, harassment, or anything that puts GREGGS in a terrible situation:
+            Standard system: 3 warnings -> Kick -> Server Ban.</p>
+            <div class="hint">Always ask for assistance in the management chat channel if you need it for any of these situations.</div>
+        </div>
+
+        <div id="page-punishments" class="page-content">
+            <h1>Guidelines for Punishment</h1>
+            <p>We at GREGGS are particularly severe when it comes to punishment. When a staff or management member performs or avoids a punishment imposed by higher-ranking officials, no tolerance will be applied.</p>
+            
             <table>
                 <thead>
-                    <tr><th>PUNISHMENT</th><th>FIRST OFFENSE</th><th>SECOND OFFENSE</th><th>THIRD OFFENSE</th></tr>
+                    <tr>
+                        <th>PUNISHMENT</th>
+                        <th>FIRST OFFENSE</th>
+                        <th>SECOND OFFENSE</th>
+                        <th>THIRD OFFENSE</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr><td>§ 1.01 Unprofessionalism</td><td><span class="tag tag-verbal">Verbal Warning</span></td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-term">Termination</span></td></tr>
                     <tr><td>§ 1.02 Improper hosting</td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-term">Termination</span></td></tr>
                     <tr><td>§ 1.03 Harassment</td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td><td><span class="tag tag-na">N/A</span></td></tr>
-                    <tr><td>§ 1.04 Misuse of Authorities</td><td><span class="tag tag-verbal">Depends</span></td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td></tr>
-                    <tr><td>§ 1.05 Unauthorized event</td><td><span class="tag tag-verbal">Depends</span></td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-na">N/A</span></td></tr>
-                    <tr><td>§ 1.06 Hinting (promotions)</td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td><td><span class="tag tag-na">N/A</span></td></tr>
+                    <tr><td>§ 1.04 Misuse of Authority</td><td><span class="tag tag-verbal">Depends</span></td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td></tr>
+                    <tr><td>§ 1.05 Unauthorized Event</td><td><span class="tag tag-verbal">Depends</span></td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-na">N/A</span></td></tr>
+                    <tr><td>§ 1.06 Hinting (Promotions)</td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td><td><span class="tag tag-na">N/A</span></td></tr>
                     <tr><td>§ 1.07 Disrespect</td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-na">N/A</span></td></tr>
                     <tr><td>§ 1.08 Grammar</td><td><span class="tag tag-verbal">Verbal</span></td><td><span class="tag tag-verbal">Verbal</span></td><td><span class="tag tag-strike">Strike</span></td></tr>
                     <tr><td>§ 1.11 Leaking</td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td><td><span class="tag tag-na">N/A</span></td></tr>
                     <tr><td>§ 1.12 Unjustified Pinging</td><td><span class="tag tag-strike">Strike</span></td><td><span class="tag tag-term">Termination</span></td><td><span class="tag tag-na">N/A</span></td></tr>
                 </tbody>
             </table>
+
+            <div class="hint">
+                <strong>Cumulative Rule:</strong> Give 1st offense if the suspect committed 2-4 offenses at once. Move straight to 2nd offense if there are more than 5 offenses at the same time.
+            </div>
+            <p>Members should never discuss punishments; it will be interpreted as a suspension.</p>
         </div>
-        <p>You should give first offense if the punished suspect committed two-four offenses at the same time. However, you should give the first offense as well in order to move straight to the second offense if there are more than five offenses at the same time.</p>
-        <p>Given how serious this is, you should be really harsh in your punishment. Members should also have been disciplined and should never discuss the issue since it would be interpreted as a suspension.</p>
-    </div>
 
-    <div id="page-ranks" class="page-content">
-        <h1>Ranks of Management</h1>
-        <p>Our management team uses a point system that is ranked by rankings. You will have a reduced quota and certain rank bonuses with each rank, but there is also a rank cooldown for each rank.</p>
-        
-        <h3>Store Regional Manager:</h3>
-        <p>The management staff has never seen them before. They are permitted to hold community shifts. When you reach this rank, there won't be a rank cooldown, so if you put in a lot of effort and the headquarters saw it, you have a good possibility of getting promoted.</p>
+        <div id="page-ranks" class="page-content">
+            <h1>Ranks of Management</h1>
+            <p>Our management team uses a point system. You will have a reduced quota and rank bonuses with each rank, but there is also a rank cooldown.</p>
+            
+            <h3>Store Regional Manager</h3>
+            <p>Permitted to hold community shifts. There is no rank cooldown for this rank. High possibility of promotion if HQ sees effort.</p>
 
-        <h3>Bakery Supervisor:</h3>
-        <p>They have a great deal of hosting experience and are somewhat knowledgeable about this aspect of our game. We demand the finest of the best when you are promoted to this level. You can move up to the next rank after your <span class="highlight">three-week rank cooldown</span> has ended.</p>
+            <h3>Bakery Supervisor</h3>
+            <p>Requires high hosting experience. We demand the finest of the best. Promotion eligibility opens after the <strong>three-week rank cooldown</strong>.</p>
 
-        <h3>Store Manager:</h3>
-        <p>It is the uppermost position in management. They are permitted to observe any training or shift. Furthermore, they occasionally have the ability to oversee any occurrence! Everything they do is <span class="highlight">extremely private</span>. They have a <span class="highlight">four-week rank cooldown</span>.</p>
-    </div>
+            <h3>Store Manager</h3>
+            <p>The uppermost position in management. Permitted to observe any training or shift. Everything they do is <strong>extremely private</strong>. They have a <strong>four-week rank cooldown</strong>.</p>
+        </div>
 
-    <div id="page-quota" class="page-content">
-        <h1>QUOTA</h1>
-        <p>For us, QUOTA is crucial. Your activities and efforts to promote yourself within GREGGS are visible to us! Although the quotas and responsibilities of each rank vary, they all share a similar characteristic.</p>
-        
-        <div class="table-container">
+        <div id="page-quota" class="page-content">
+            <h1>QUOTA Policy</h1>
+            <p>QUOTA is crucial. Your activities and efforts to promote yourself within GREGGS are visible to us!</p>
+            
             <table>
                 <thead>
-                    <tr><th>RANK</th><th>RANK QUOTA</th></tr>
+                    <tr>
+                        <th>RANK</th>
+                        <th>REQUIREMENT</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Store Regional Manager</td><td>55 minutes within the game + 1 shift hosted or attended</td></tr>
-                    <tr><td>Bakery Supervisor</td><td>70 minutes within the game + 1 shift hosted or attended</td></tr>
-                    <tr><td>Store Manager</td><td>100 minutes within the game + 1 shift attended.</td></tr>
+                    <tr><td>Store Regional Manager</td><td>55 mins in-game + 1 shift hosted or attended</td></tr>
+                    <tr><td>Bakery Supervisor</td><td>70 mins in-game + 1 shift hosted or attended</td></tr>
+                    <tr><td>Store Manager</td><td>100 mins in-game + 1 shift attended</td></tr>
                 </tbody>
             </table>
+            <p>If you have any questions, contact the Vice Chief Executive Officer.</p>
         </div>
-        <p>If you have any questions contact the Vice Chief Executive Officer related to the quota of any rank.</p>
-    </div>
 
-    <div id="page-promotion" class="page-content">
-        <h1>Guidelines of Promotion</h1>
-        <p>For those who would prefer to be promoted more quickly and easily, this area of the management rules is crucial. Within GREGGS you have to meet some requirements before being recommended by the GREGGS headquarters.</p>
+        <div id="page-promotions" class="page-content">
+            <h1>Guidelines of Promotion</h1>
+            <p>You have to meet some requirements before being recommended by the GREGGS headquarters.</p>
 
-        <h3>Which things you should NOT do?</h3>
-        <p>Begging for a promotion is prohibited. One element of the disciplinary guidelines, specifically <span class="highlight" style="color:var(--tag-term)">“Hinting (promotions),”</span> automatically results in termination from our organization. This is an extraordinary occurrence in our organization, and no exceptions or tolerance will be granted. You should be patient and work hard.</p>
+            <h3>What NOT to do</h3>
+            <p>Begging for a promotion is prohibited. Specifically <strong>"Hinting (promotions)"</strong> automatically results in termination from our organization. No exceptions or tolerance will be granted.</p>
 
-        <h3>Which things should you do?</h3>
-        <p>Being extremely active in the game, assisting other management members, and hosting numerous shifts. As well handle other situations that you are required to be there. You will be heard by the headquarters and may be elevated by the headquarters themselves or automatically!</p>
-    </div>
+            <h3>What YOU should do</h3>
+            <ul>
+                <li>Being extremely active in the game.</li>
+                <li>Assisting other management members.</li>
+                <li>Hosting numerous shifts.</li>
+                <li>Handling situations where you are required.</li>
+            </ul>
+            <p>You will be heard by headquarters and may be elevated manually or automatically!</p>
+        </div>
 
-</main>
+        <div class="footer-nav">
+            <a id="prev-btn" class="nav-card" style="visibility: hidden;">
+                <span>Previous</span><div id="prev-label">-</div>
+            </a>
+            <a id="next-btn" class="nav-card" style="text-align: right;">
+                <span>Next</span><div id="next-label">-</div>
+            </a>
+        </div>
+    </main>
 
-<script>
-    function navigate(id) {
-        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-        document.getElementById('page-' + id).classList.add('active');
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-        event.currentTarget.classList.add('active');
-        window.scrollTo(0,0);
-    }
-</script>
+    <script>
+        const menuOrder = ['introduction', 'management-info', 'punishments', 'ranks', 'quota', 'promotions'];
+
+        function copyText(btn) {
+            const text = btn.nextElementSibling.innerText;
+            navigator.clipboard.writeText(text);
+            const icon = btn.querySelector('i');
+            icon.className = 'fa-solid fa-check';
+            setTimeout(() => { icon.className = 'fa-regular fa-copy'; }, 2000);
+        }
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const container = document.getElementById('sub-menu-container');
+            const arrow = document.getElementById('menu-arrow');
+            container.classList.toggle('collapsed');
+            arrow.classList.toggle('rotated');
+        }
+
+        function navigate(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.querySelectorAll('.nav-item, .nav-sub-item').forEach(p => p.classList.remove('active'));
+            document.getElementById('link-' + pageId).classList.add('active');
+
+            const sectionName = document.getElementById('link-' + pageId).innerText;
+            document.getElementById('breadcrumb').innerText = `Docs > Management Guidelines > ${sectionName}`;
+            document.getElementById('tab-title').innerText = `${sectionName} | Greggs UK Management`;
+
+            const currentIndex = menuOrder.indexOf(pageId);
+            const prevBtn = document.getElementById('prev-btn');
+            if (currentIndex > 0) {
+                prevBtn.style.visibility = 'visible';
+                const prevId = menuOrder[currentIndex - 1];
+                prevBtn.querySelector('div').innerText = document.getElementById('link-' + prevId).innerText;
+                prevBtn.onclick = () => navigate(prevId);
+            } else { prevBtn.style.visibility = 'hidden'; }
+
+            const nextBtn = document.getElementById('next-btn');
+            if (currentIndex < menuOrder.length - 1) {
+                nextBtn.style.visibility = 'visible';
+                const nextId = menuOrder[currentIndex + 1];
+                nextBtn.querySelector('div').innerText = document.getElementById('link-' + nextId).innerText;
+                nextBtn.onclick = () => navigate(nextId);
+            } else { nextBtn.style.visibility = 'hidden'; }
+            window.scrollTo(0,0);
+        }
+    </script>
 </body>
 </html>
