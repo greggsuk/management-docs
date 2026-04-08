@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="tab-title">management shift guidelines | greggs uk management</title>
+    <title id="tab-title">Management Shift Guidelines | Greggs UK Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -23,7 +23,7 @@
             background-color: #fff;
         }
 
-        /* --- SIDEBAR (TITLE CASE) --- */
+        /* --- SIDEBAR (Shift Roles Style) --- */
         #sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -43,7 +43,6 @@
             gap: 10px;
             color: var(--text-main);
             text-decoration: none;
-            /* El logo se mantiene con estilo normal */
         }
 
         .section-title {
@@ -67,7 +66,6 @@
         }
         .nav-parent-wrapper:hover { background: #f5f7f9; }
 
-        /* Estilo tipo Shift Roles (Mayúscula inicial) */
         .nav-item {
             flex-grow: 1;
             padding: 10px 24px;
@@ -118,7 +116,8 @@
             max-width: 900px;
         }
 
-        .breadcrumb { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-transform: lowercase; }
+        .breadcrumb { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
+
         .page-content { display: none; animation: fadeIn 0.3s ease; }
         .page-content.active { display: block; }
 
@@ -128,7 +127,8 @@
         }
 
         h1 { font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
-        
+        h2 { margin-top: 40px; font-size: 1.8rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+
         .code-block {
             background: #282c34;
             color: #dcdfe4;
@@ -144,7 +144,7 @@
         th { background: #f8f9fa; text-align: left; padding: 12px; border-bottom: 2px solid var(--border-color); }
         td { padding: 12px; border-bottom: 1px solid var(--border-color); }
 
-        /* FOOTER EN LOWERCASE */
+        /* --- FOOTER NAV --- */
         .footer-nav {
             display: flex;
             justify-content: space-between;
@@ -163,8 +163,21 @@
             cursor: pointer;
         }
         .nav-card:hover { border-color: var(--gitbook-blue); }
-        .nav-card span { display: block; font-size: 12px; color: var(--text-light); text-transform: lowercase; }
-        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; text-transform: lowercase; }
+        
+        /* Solo "previous" y "next" en minúsculas */
+        .nav-card span { 
+            display: block; 
+            font-size: 12px; 
+            color: var(--text-light); 
+            text-transform: lowercase; 
+        }
+        
+        /* Los nombres de las secciones (Management Shift, etc.) en formato normal */
+        .nav-card div { 
+            font-weight: 600; 
+            color: var(--gitbook-blue); 
+            margin-top: 5px; 
+        }
     </style>
 </head>
 <body>
@@ -195,11 +208,11 @@
     </aside>
 
     <main id="content">
-        <div class="breadcrumb" id="breadcrumb">docs > management shift > introduction</div>
+        <div class="breadcrumb" id="breadcrumb">Docs > Management Shift > Introduction</div>
         
         <div id="page-introduction" class="page-content active">
             <h1>Management Shift Guidelines</h1>
-            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers.</p>
+            <p>Welcome to the official management shift protocols for Greggs UK.</p>
         </div>
 
         <div id="page-roles" class="page-content">
@@ -212,9 +225,6 @@
                     <tr><td><strong>Host</strong></td><td>Store Regional Manager+</td><td>Assigns staff roles and oversees session.</td><td>1</td></tr>
                     <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+</td><td>Assists host and manages operations.</td><td>1</td></tr>
                     <tr><td><strong>Overseer</strong></td><td>Store Manager+ (HQ Perms)</td><td>Monitors protocol compliance.</td><td>1</td></tr>
-                    <tr><td><strong>POS Handler</strong></td><td>Any Rank+</td><td>Handles transactions.</td><td>4</td></tr>
-                    <tr><td><strong>Orders Handler</strong></td><td>Any Rank+</td><td>Prepares orders.</td><td>3</td></tr>
-                    <tr><td><strong>Greeter</strong></td><td>Any Rank+</td><td>Welcomes customers.</td><td>2</td></tr>
                 </tbody>
             </table>
         </div>
@@ -231,25 +241,22 @@
 
         <div id="page-assignment" class="page-content">
             <h1>Roles Assignment</h1>
-            <div class="code-block">"You are now dismissed. Proceed to your stations."</div>
+            <div class="code-block">"Proceed to your stations."</div>
         </div>
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
-            <div class="code-block">"Report to the shift room once your area is cleared."</div>
+            <div class="code-block">"Report back to the shift room."</div>
         </div>
 
         <div id="page-sots" class="page-content">
-            <h1>Star Of The Shift (SOTS)</h1>
-            <p>Reward the best performing member.</p>
+            <h1>Star Of The Shift</h1>
+            <p>Selection based on performance.</p>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
-            <p>Formally end the session and thank the staff.</p>
-            <div class="code-block">
-                "You are officially dismissed. Thank you for your hard work!"
-            </div>
+            <div class="code-block">"You are officially dismissed. Thank you!"</div>
         </div>
 
         <div class="footer-nav">
@@ -279,24 +286,25 @@
             document.querySelectorAll('.nav-item, .nav-sub-item').forEach(p => p.classList.remove('active'));
             document.getElementById('link-' + pageId).classList.add('active');
 
-            // Breadcrumb en minúsculas
-            const cleanName = document.getElementById('link-' + pageId).innerText.toLowerCase();
-            document.getElementById('breadcrumb').innerText = `docs > management shift > ${cleanName}`;
+            const sectionName = document.getElementById('link-' + pageId).innerText;
+            document.getElementById('breadcrumb').innerText = `Docs > Management Shift > ${sectionName}`;
+            document.getElementById('tab-title').innerText = `${sectionName} | Greggs UK Management`;
 
-            // Footer en minúsculas
             const currentIndex = menuOrder.indexOf(pageId);
             const prevBtn = document.getElementById('prev-btn');
             if (currentIndex > 0) {
                 prevBtn.style.visibility = 'visible';
-                prevBtn.querySelector('div').innerText = menuOrder[currentIndex - 1].replace(/-/g, ' ').toLowerCase();
-                prevBtn.onclick = () => navigate(menuOrder[currentIndex - 1]);
+                const prevId = menuOrder[currentIndex - 1];
+                prevBtn.querySelector('div').innerText = document.getElementById('link-' + prevId).innerText;
+                prevBtn.onclick = () => navigate(prevId);
             } else { prevBtn.style.visibility = 'hidden'; }
 
             const nextBtn = document.getElementById('next-btn');
             if (currentIndex < menuOrder.length - 1) {
                 nextBtn.style.visibility = 'visible';
-                nextBtn.querySelector('div').innerText = menuOrder[currentIndex + 1].replace(/-/g, ' ').toLowerCase();
-                nextBtn.onclick = () => navigate(menuOrder[currentIndex + 1]);
+                const nextId = menuOrder[currentIndex + 1];
+                nextBtn.querySelector('div').innerText = document.getElementById('link-' + nextId).innerText;
+                nextBtn.onclick = () => navigate(nextId);
             } else { nextBtn.style.visibility = 'hidden'; }
             window.scrollTo(0,0);
         }
