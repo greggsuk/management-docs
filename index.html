@@ -116,7 +116,7 @@
             max-width: 850px;
         }
 
-        .breadcrumb { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
+        .breadcrumb { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-transform: lowercase; }
         .page-content { display: none; animation: fadeIn 0.3s ease; }
         .page-content.active { display: block; }
 
@@ -172,8 +172,8 @@
             cursor: pointer;
         }
         .nav-card:hover { border-color: var(--gitbook-blue); }
-        .nav-card span { display: block; font-size: 12px; color: var(--text-light); }
-        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; }
+        .nav-card span { display: block; font-size: 12px; color: var(--text-light); text-transform: lowercase; }
+        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; text-transform: lowercase; }
     </style>
 </head>
 <body>
@@ -204,18 +204,11 @@
     </aside>
 
     <main id="content">
-        <div class="breadcrumb" id="breadcrumb">Docs > Management Shift > Introduction</div>
+        <div class="breadcrumb" id="breadcrumb">docs > management shift > introduction</div>
         
         <div id="page-introduction" class="page-content active">
             <h1>Management Shift Guidelines</h1>
-            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers. Adherence to these guidelines is <strong>mandatory</strong> for all Greggs UK Management personnel.</p>
-            <h3>What is the main objective of shifts?</h3>
-            <ul>
-                <li>Maintain operational excellence within Greggs UK while supervising personnel.</li>
-                <li>Identify and recognize the <strong>Star of the Shift (SOTS)</strong>.</li>
-                <li>Facilitate promotion recommendations for deserving staff if HQ is present.</li>
-            </ul>
-            <div class="hint">Your role as a management member is crucial in upholding Greggs UK standards. Always supervise those attending your shift with professionalism.</div>
+            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers. Adherence to these guidelines is mandatory for all Greggs UK Management personnel.</p>
         </div>
 
         <div id="page-roles" class="page-content">
@@ -238,7 +231,6 @@
         <div id="page-announcement" class="page-content">
             <h1>Announcement Time</h1>
             <p>Before beginning the session, the Host must alert the server via the command bar.</p>
-            <div class="hint"><strong>Protocol:</strong> You are strictly permitted to execute the announcement command a maximum of 3 times per shift.</div>
             <div class="code-block">/sannounce</div>
         </div>
 
@@ -254,7 +246,6 @@
             </div>
             <h3>Session Rules:</h3>
             <div class="code-block">
-                "Before we proceed with role assignments, please listen carefully to these rules:"<br>
                 "1. You must remain at your assigned station at all times."<br>
                 "2. Professionalism is required throughout the entire session."<br>
                 "3. Do not request role changes without prior permission."<br><br>
@@ -264,7 +255,6 @@
 
         <div id="page-assignment" class="page-content">
             <h1>Roles Assignment</h1>
-            <p>Assign each attendee exactly <strong>one</strong> role. Do not exceed the capacity limits established for each role.</p>
             <div class="code-block">
                 "You are now dismissed. Please proceed to your designated stations immediately."
             </div>
@@ -273,10 +263,6 @@
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
             <p>Once the shift concludes, the management team must regroup to evaluate performance.</p>
-            <ul>
-                <li>Discuss the selection for <strong>Star of the Shift</strong>.</li>
-                <li>Evaluate any promotion recommendations for the Headquarters team.</li>
-            </ul>
             <div class="code-block">
                 "All staff members, please report to the shift room once your area is cleared."
             </div>
@@ -284,23 +270,37 @@
 
         <div id="page-sots" class="page-content">
             <h1>Star of the Shift (SOTS)</h1>
-            <p>The SOTS recognition process does not require a fixed dialogue. You may announce it in a style that encourages the staff.</p>
-            <div class="hint">Reward the individual who demonstrated the highest level of professionalism and efficiency during the session.</div>
+            <p>Recognize the individual who showed the best performance during the session.</p>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
+            <p>Once the Star of the Shift has been recognized, you must formally conclude the session. This is the final step where you thank the staff for their time and effort.</p>
+            
+            <h3>Objectives:</h3>
+            <ul>
+                <li>Formally end the shift session.</li>
+                <li>Encourage staff to attend future sessions.</li>
+                <li>Ensure all personnel are cleared from the shift room.</li>
+            </ul>
+
+            <h3>Final Dismissal Dialogue:</h3>
+            <p>The Host must state the following to officially end the shift:</p>
             <div class="code-block">
                 "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
+            </div>
+
+            <div class="hint">
+                <strong>Note:</strong> After dismissal, ensure you log the shift in the appropriate channels if required by your department.
             </div>
         </div>
 
         <div class="footer-nav">
             <a id="prev-btn" class="nav-card" style="visibility: hidden;">
-                <span>Previous</span><div id="prev-label">-</div>
+                <span>previous</span><div id="prev-label">-</div>
             </a>
             <a id="next-btn" class="nav-card" style="text-align: right;">
-                <span>Next</span><div id="next-label">-</div>
+                <span>next</span><div id="next-label">-</div>
             </a>
         </div>
     </main>
@@ -322,22 +322,22 @@
             document.querySelectorAll('.nav-item, .nav-sub-item').forEach(p => p.classList.remove('active'));
             document.getElementById('link-' + pageId).classList.add('active');
 
-            const cleanName = document.getElementById('link-' + pageId).innerText;
-            document.getElementById('breadcrumb').innerText = `Docs > Management Shift > ${cleanName}`;
+            const cleanName = document.getElementById('link-' + pageId).innerText.toLowerCase();
+            document.getElementById('breadcrumb').innerText = `docs > management shift > ${cleanName}`;
             document.getElementById('tab-title').innerText = `${cleanName} | Greggs UK Management`;
 
             const currentIndex = menuOrder.indexOf(pageId);
             const prevBtn = document.getElementById('prev-btn');
             if (currentIndex > 0) {
                 prevBtn.style.visibility = 'visible';
-                prevBtn.querySelector('div').innerText = menuOrder[currentIndex - 1].replace(/-/g, ' ');
+                prevBtn.querySelector('div').innerText = menuOrder[currentIndex - 1].replace(/-/g, ' ').toLowerCase();
                 prevBtn.onclick = () => navigate(menuOrder[currentIndex - 1]);
             } else { prevBtn.style.visibility = 'hidden'; }
 
             const nextBtn = document.getElementById('next-btn');
             if (currentIndex < menuOrder.length - 1) {
                 nextBtn.style.visibility = 'visible';
-                nextBtn.querySelector('div').innerText = menuOrder[currentIndex + 1].replace(/-/g, ' ');
+                nextBtn.querySelector('div').innerText = menuOrder[currentIndex + 1].replace(/-/g, ' ').toLowerCase();
                 nextBtn.onclick = () => navigate(menuOrder[currentIndex + 1]);
             } else { nextBtn.style.visibility = 'hidden'; }
             window.scrollTo(0,0);
