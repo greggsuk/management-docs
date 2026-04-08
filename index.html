@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="tab-title">Management Shift Guidelines | Greggs UK Management</title>
+    <title id="tab-title">management shift guidelines | greggs uk management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -113,7 +113,7 @@
             margin-left: var(--sidebar-width);
             width: 100%;
             padding: 40px 60px;
-            max-width: 850px;
+            max-width: 900px;
         }
 
         .breadcrumb { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-transform: lowercase; }
@@ -181,24 +181,24 @@
     <aside id="sidebar">
         <a href="#" class="logo">
             <i class="fa-solid fa-bread-slice" style="color: var(--gitbook-blue)"></i>
-            Greggs UK Management
+            greggs uk management
         </a>
         
-        <div class="section-title">Guidelines</div>
+        <div class="section-title">guidelines</div>
         <ul class="sidebar-nav">
             <li class="nav-parent-wrapper">
-                <a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">Management Shift</a>
+                <a onclick="navigate('introduction')" id="link-introduction" class="nav-item active">management shift</a>
                 <i class="fa-solid fa-chevron-down arrow-btn" id="menu-arrow" onclick="toggleMenu(event)"></i>
             </li>
             
             <div id="sub-menu-container">
-                <li><a onclick="navigate('roles')" id="link-roles" class="nav-sub-item">Shift Roles</a></li>
-                <li><a onclick="navigate('announcement')" id="link-announcement" class="nav-sub-item">Announcement Time</a></li>
-                <li><a onclick="navigate('starting')" id="link-starting" class="nav-sub-item">Starting Time</a></li>
-                <li><a onclick="navigate('assignment')" id="link-assignment" class="nav-sub-item">Roles Assignment</a></li>
-                <li><a onclick="navigate('ending')" id="link-ending" class="nav-sub-item">Ending Time</a></li>
-                <li><a onclick="navigate('sots')" id="link-sots" class="nav-sub-item">Star of the Shift</a></li>
-                <li><a onclick="navigate('dismissal')" id="link-dismissal" class="nav-sub-item">Dismissal Time</a></li>
+                <li><a onclick="navigate('roles')" id="link-roles" class="nav-sub-item">shift roles</a></li>
+                <li><a onclick="navigate('announcement')" id="link-announcement" class="nav-sub-item">announcement time</a></li>
+                <li><a onclick="navigate('starting')" id="link-starting" class="nav-sub-item">starting time</a></li>
+                <li><a onclick="navigate('assignment')" id="link-assignment" class="nav-sub-item">roles assignment</a></li>
+                <li><a onclick="navigate('ending')" id="link-ending" class="nav-sub-item">ending time</a></li>
+                <li><a onclick="navigate('sots')" id="link-sots" class="nav-sub-item">star of the shift</a></li>
+                <li><a onclick="navigate('dismissal')" id="link-dismissal" class="nav-sub-item">dismissal time</a></li>
             </div>
         </ul>
     </aside>
@@ -213,17 +213,53 @@
 
         <div id="page-roles" class="page-content">
             <h1>Shift Roles</h1>
+            <p>Each role within the shift has specific requirements and responsibilities that must be followed strictly.</p>
             <table>
                 <thead>
-                    <tr><th>Role Name</th><th>Rank / Tasks</th><th>Limit</th></tr>
+                    <tr>
+                        <th>Role Name</th>
+                        <th>Rank Requirement</th>
+                        <th>Tasks & Responsibilities</th>
+                        <th>Limit</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Host</strong></td><td>Store Regional Manager+. Assigns staff roles and oversees the entire session.</td><td>1</td></tr>
-                    <tr><td><strong>Co-Host</strong></td><td>Store Regional Manager+. Assists the host and manages ground operations.</td><td>1</td></tr>
-                    <tr><td><strong>Overseer</strong></td><td>Store Manager+ (with HQ permission). Monitors the entire shift.</td><td>1</td></tr>
-                    <tr><td><strong>POS Handler</strong></td><td>Any rank+. Handles transactions and assists customers.</td><td>4</td></tr>
-                    <tr><td><strong>Orders Handler</strong></td><td>Any rank+. Responsible for preparing all order requests.</td><td>3</td></tr>
-                    <tr><td><strong>Greeter</strong></td><td>Any rank+. Welcomes customers upon entry to the bakery.</td><td>2</td></tr>
+                    <tr>
+                        <td><strong>Host</strong></td>
+                        <td>Store Regional Manager+</td>
+                        <td>Assigns staff roles and oversees the entire session performance.</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Co-Host</strong></td>
+                        <td>Store Regional Manager+</td>
+                        <td>Assists the host and manages ground operations/staff flow.</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Overseer</strong></td>
+                        <td>Store Manager+ (HQ Perms)</td>
+                        <td>Monitors the shift and ensures management follows protocol.</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>POS Handler</strong></td>
+                        <td>Any Rank+</td>
+                        <td>Handles transactions at the registers and assists customers.</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Orders Handler</strong></td>
+                        <td>Any Rank+</td>
+                        <td>Responsible for preparing and serving all food/drink orders.</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Greeter</strong></td>
+                        <td>Any Rank+</td>
+                        <td>Welcomes customers and directs them to available registers.</td>
+                        <td>2</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -243,13 +279,6 @@
             </div>
             <div class="code-block">
                 "I am [Name], and I will be your Co-Host for today's session."
-            </div>
-            <h3>Session Rules:</h3>
-            <div class="code-block">
-                "1. You must remain at your assigned station at all times."<br>
-                "2. Professionalism is required throughout the entire session."<br>
-                "3. Do not request role changes without prior permission."<br><br>
-                "With that being said, [Co-Host Name] and I will now assign your roles."
             </div>
         </div>
 
@@ -275,23 +304,10 @@
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
-            <p>Once the Star of the Shift has been recognized, you must formally conclude the session. This is the final step where you thank the staff for their time and effort.</p>
-            
-            <h3>Objectives:</h3>
-            <ul>
-                <li>Formally end the shift session.</li>
-                <li>Encourage staff to attend future sessions.</li>
-                <li>Ensure all personnel are cleared from the shift room.</li>
-            </ul>
-
+            <p>Once the Star of the Shift has been recognized, you must formally conclude the session.</p>
             <h3>Final Dismissal Dialogue:</h3>
-            <p>The Host must state the following to officially end the shift:</p>
             <div class="code-block">
                 "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
-            </div>
-
-            <div class="hint">
-                <strong>Note:</strong> After dismissal, ensure you log the shift in the appropriate channels if required by your department.
             </div>
         </div>
 
@@ -324,7 +340,7 @@
 
             const cleanName = document.getElementById('link-' + pageId).innerText.toLowerCase();
             document.getElementById('breadcrumb').innerText = `docs > management shift > ${cleanName}`;
-            document.getElementById('tab-title').innerText = `${cleanName} | Greggs UK Management`;
+            document.getElementById('tab-title').innerText = `${cleanName} | greggs uk management`;
 
             const currentIndex = menuOrder.indexOf(pageId);
             const prevBtn = document.getElementById('prev-btn');
