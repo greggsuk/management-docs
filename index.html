@@ -128,8 +128,7 @@
 
         h1 { font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
         h3 { margin-top: 25px; font-size: 1.3rem; color: var(--text-main); }
-        
-        p, ul { line-height: 1.6; font-size: 16px; color: #3b454e; }
+        p, ul, ol { line-height: 1.6; font-size: 16px; color: #3b454e; }
 
         .hint {
             background: #e7f3fe;
@@ -154,7 +153,7 @@
         th { background: #f8f9fa; text-align: left; padding: 12px; border-bottom: 2px solid var(--border-color); }
         td { padding: 12px; border-bottom: 1px solid var(--border-color); }
 
-        /* --- FOOTER NAV --- */
+        /* --- FOOTER (CON PREVIOUS Y NEXT EN MAYÚSCULA INICIAL) --- */
         .footer-nav {
             display: flex;
             justify-content: space-between;
@@ -178,7 +177,7 @@
             display: block; 
             font-size: 12px; 
             color: var(--text-light); 
-            text-transform: lowercase; /* Solo previous/next en minúscula */
+            text-transform: none; /* Quitamos el forzado a minúsculas */
         }
         
         .nav-card div { 
@@ -220,12 +219,12 @@
         
         <div id="page-introduction" class="page-content active">
             <h1>Management Shift Guidelines</h1>
-            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers. Adherence to these guidelines is <strong>mandatory</strong>.</p>
-            <h3>What is the main objective of shifts?</h3>
+            <p>The purpose of this document is to ensure that all Greggs UK staff members deliver a high-quality experience for our customers. Adherence to these guidelines is mandatory for all Greggs UK Management personnel.</p>
+            <h3>Main Objectives</h3>
             <ul>
-                <li>Maintain operational excellence within Greggs UK.</li>
+                <li>Maintain operational excellence within the bakery.</li>
                 <li>Identify and recognize the <strong>Star of the Shift (SOTS)</strong>.</li>
-                <li>Facilitate promotion recommendations.</li>
+                <li>Facilitate promotion recommendations if HQ is present.</li>
             </ul>
         </div>
 
@@ -253,9 +252,9 @@
 
         <div id="page-announcement" class="page-content">
             <h1>Announcement Time</h1>
-            <p>Before beginning, the Host must alert the server via the command bar.</p>
-            <div class="hint">Protocol: You are permitted to execute the announcement a maximum of 3 times.</div>
+            <p>Before beginning the session, the Host must alert the server via the command bar.</p>
             <div class="code-block">/sannounce</div>
+            <div class="hint">Protocol: You are permitted to execute the announcement a maximum of 3 times.</div>
         </div>
 
         <div id="page-starting" class="page-content">
@@ -285,7 +284,7 @@
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
-            <p>Once the shift concludes, the management team must regroup.</p>
+            <p>Once the shift concludes, regroup the staff in the shift room.</p>
             <div class="code-block">
                 "All staff members, please report to the shift room once your area is cleared."
             </div>
@@ -293,23 +292,23 @@
 
         <div id="page-sots" class="page-content">
             <h1>Star Of The Shift</h1>
-            <p>Recognize the individual who showed the best performance.</p>
+            <p>Reward the staff member who showed the best performance during the shift.</p>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
-            <p>Formally end the session and thank the staff.</p>
+            <p>Final closing of the session.</p>
             <div class="code-block">
-                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
+                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift!"
             </div>
         </div>
 
         <div class="footer-nav">
             <a id="prev-btn" class="nav-card" style="visibility: hidden;">
-                <span>previous</span><div id="prev-label">-</div>
+                <span>Previous</span><div id="prev-label">-</div>
             </a>
             <a id="next-btn" class="nav-card" style="text-align: right;">
-                <span>next</span><div id="next-label">-</div>
+                <span>Next</span><div id="next-label">-</div>
             </a>
         </div>
     </main>
