@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tab-title">Management Guidelines | Greggs UK Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gitbook-blue: #3884ff;
+            --sidebar-bg: #ffffff;
+            --border-color: #e6ecf1;
+            --text-main: #242a31;
+            --text-light: #5c6975;
+            --sidebar-width: 300px;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            color: var(--text-main);
+            display: flex;
+            background-color: #fff;
+        }
+
+        /* --- SIDEBAR --- */
+        #sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            overflow-y: auto;
+            padding: 24px 0;
+        }
+
+        .logo {
+            padding: 0 24px 20px 24px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .section-title {
+            padding: 15px 24px 5px 24px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #9daab6;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+
+        .nav-item {
+            padding: 10px 24px;
+            font-size: 14px;
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            border-right: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover { background: #f5f7f9; }
+
+        .nav-item.active {
+            color: var(--gitbook-blue);
+            background: #eef5ff;
+            border-right: 3px solid var(--gitbook-blue);
+            font-weight: 600;
+        }
+
+        /* --- MAIN CONTENT --- */
+        #content {
+            margin-left: var(--sidebar-width);
+            width: 100%;
+            padding: 40px 60px;
+            max-width: 900px;
+        }
+
+        .page-content { display: none; animation: fadeIn 0.3s ease; }
+        .page-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        h2 { margin-top: 30px; color: var(--text-main); }
+        h3 { margin-top: 20px; font-size: 1.2rem; color: var(--gitbook-blue); }
+        
+        p, ul, li { line-height: 1.6; font-size: 15px; color: #3b454e; }
+
+        /* --- COPY SYSTEM --- */
+        .copy-container {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #9daab6;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #dcdfe4;
+            padding: 15px 45px 15px 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            line-height: 1.5;
+            border: 1px solid #3e4451;
+            white-space: pre-wrap;
+        }
+
+        .hint {
+            background: #e7f3fe;
+            border-left: 4px solid var(--gitbook-blue);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        /* --- TABLES --- */
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: #f8f9fa; text-align: left; padding: 12px; border-bottom: 2px solid var(--border-color); }
+        td { padding: 12px; border-bottom: 1px solid var(--border-color); }
+
+        /* --- FOOTER --- */
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-card {
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            padding: 15px 25px;
+            border-radius: 8px;
+            width: 45%;
+            cursor: pointer;
+        }
+        .nav-card span { display: block; font-size: 12px; color: var(--text-light); }
+        .nav-card div { font-weight: 600; color: var(--gitbook-blue); margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+    <aside id="sidebar">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-arrow-left"></i> Hub
+        </a>
+        <div class="section-title">Management Policy</div>
+        <ul class="sidebar-nav">
+            <li><a onclick="navigate('info')" id="link-info" class="nav-item active">Information</a></li>
+            <li><a onclick="navigate('punishment')" id="link-punishment" class="nav-item">Punishments</a></li>
+            <li><a onclick="navigate('ranks')" id="link-ranks" class="nav-item">Ranks</a></li>
+            <li><a onclick="navigate('quota')" id="link-quota" class="nav-item">Quota</a></li>
+            <li><a onclick="navigate('promotion')" id="link-promotion" class="nav-item">Promotion</a></li>
+        </ul>
+    </aside>
+
+    <main id="content">
+        <div id="page-info" class="page-content active">
+            <h1>Management Information</h1>
+            <p>The smooth operation of Greggs is made possible by management members. Your duty is to ensure the game runs professionally and assist players.</p>
+            
+            <h3>Scenarios: Trollers</h3>
+            <p>Remain composed and professional. Use the following commands in order:</p>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">:warn [User] Trolling (Warn twice)</div>
+            </div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">:kick [User] Trolling after warnings</div>
+            </div>
+            <div class="copy-container">
+                <button class="copy-btn" onclick="copyText(this)"><i class="fa-regular fa-copy"></i></button>
+                <div class="code-block">:serverban [User] Persistent Trolling</div>
+            </div>
+
+            <h3>Exploiters</h3>
+            <p>Contact the CEO or Vice CEO immediately. Take evidence (video/screenshots) as soon as possible.</p>
+        </div>
+
+        <div id="page-punishment" class="page-content">
+            <h1>Guidelines for Punishment</h1>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>OFFENSE</th><th>1st</th><th>2nd</th><th>3rd</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Unprofessionalism</td><td>Verbal</td><td>Strike</td><td>Term</td></tr>
+                        <tr><td>Improper Hosting</td><td>Strike</td><td>Strike</td><td>Term</td></tr>
+                        <tr><td>Harassment</td><td>Term</td><td>-</td><td>-</td></tr>
+                        <tr><td>Hinting</td><td>Term</td><td>-</td><td>-</td></tr>
+                        <tr><td>Grammar</td><td>Verbal</td><td>Verbal</td><td>Strike</td></tr>
+                        <tr><td>Disobedience</td><td>Strike</td><td>Strike</td><td>Term</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="hint">Note: Harassment, Hinting, and Leaking results in immediate Termination.</div>
+        </div>
+
+        <div id="page-ranks" class="page-content">
+            <h1>Management Ranks</h1>
+            <h3>Store Regional Manager</h3>
+            <p>Permitted to hold community shifts. No rank cooldown. Hard work leads to quick promotion.</p>
+            
+            <h3>Bakery Supervisor</h3>
+            <p>Experienced hosts. 3-week rank cooldown applies before next promotion.</p>
+            
+            <h3>Store Manager</h3>
+            <p>Uppermost management position. Can oversee any session or occurrence. 4-week rank cooldown.</p>
+        </div>
+
+        <div id="page-quota" class="page-content">
+            <h1>Weekly Quota</h1>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>RANK</th><th>TIME GOAL</th><th>SESSION GOAL</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Store Regional Manager</td><td>55 Minutes</td><td>1 Shift hosted/attended</td></tr>
+                        <tr><td>Bakery Supervisor</td><td>70 Minutes</td><td>1 Shift hosted/attended</td></tr>
+                        <tr><td>Store Manager</td><td>100 Minutes</td><td>1 Shift attended</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="page-promotion" class="page-content">
+            <h1>Promotion Guidelines</h1>
+            <h3>What NOT to do:</h3>
+            <p><strong>Begging/Hinting:</strong> Asking for a promotion results in immediate termination. No exceptions.</p>
+            
+            <h3>What TO do:</h3>
+            <ul>
+                <li>Being extremely active in-game.</li>
+                <li>Assisting other management members.</li>
+                <li>Hosting numerous successful shifts.</li>
+                <li>Handling scenarios professionally.</li>
+            </ul>
+        </div>
+
+        <div class="footer-nav">
+            <a id="prev-btn" class="nav-card" style="visibility: hidden;"><span>Previous</span><div id="prev-label">-</div></a>
+            <a id="next-btn" class="nav-card" style="text-align: right;"><span>Next</span><div id="next-label">-</div></a>
+        </div>
+    </main>
+
+    <script>
+        const menuOrder = ['info', 'punishment', 'ranks', 'quota', 'promotion'];
+
+        function copyText(btn) {
+            const text = btn.nextElementSibling.innerText;
+            navigator.clipboard.writeText(text);
+            const icon = btn.querySelector('i');
+            icon.className = 'fa-solid fa-check';
+            setTimeout(() => { icon.className = 'fa-regular fa-copy'; }, 2000);
+        }
+
+        function navigate(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(p => p.classList.remove('active'));
+            document.getElementById('link-' + pageId).classList.add('active');
+
+            const currentIndex = menuOrder.indexOf(pageId);
+            const prevBtn = document.getElementById('prev-btn');
+            if (currentIndex > 0) {
+                prevBtn.style.visibility = 'visible';
+                const prevId = menuOrder[currentIndex - 1];
+                prevBtn.querySelector('div').innerText = document.getElementById('link-' + prevId).innerText;
+                prevBtn.onclick = () => navigate(prevId);
+            } else { prevBtn.style.visibility = 'hidden'; }
+
+            const nextBtn = document.getElementById('next-btn');
+            if (currentIndex < menuOrder.length - 1) {
+                nextBtn.style.visibility = 'visible';
+                const nextId = menuOrder[currentIndex + 1];
+                nextBtn.querySelector('div').innerText = document.getElementById('link-' + nextId).innerText;
+                nextBtn.onclick = () => navigate(nextId);
+            } else { nextBtn.style.visibility = 'hidden'; }
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
