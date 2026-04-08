@@ -23,7 +23,7 @@
             background-color: #fff;
         }
 
-        /* --- SIDEBAR (Shift Roles Style) --- */
+        /* --- SIDEBAR --- */
         #sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -153,7 +153,7 @@
         th { background: #f8f9fa; text-align: left; padding: 12px; border-bottom: 2px solid var(--border-color); }
         td { padding: 12px; border-bottom: 1px solid var(--border-color); }
 
-        /* --- FOOTER (CON PREVIOUS Y NEXT EN MAYÚSCULA INICIAL) --- */
+        /* --- FOOTER (Previous/Next con Mayúscula) --- */
         .footer-nav {
             display: flex;
             justify-content: space-between;
@@ -177,7 +177,6 @@
             display: block; 
             font-size: 12px; 
             color: var(--text-light); 
-            text-transform: none; /* Quitamos el forzado a minúsculas */
         }
         
         .nav-card div { 
@@ -284,7 +283,7 @@
 
         <div id="page-ending" class="page-content">
             <h1>Ending Time</h1>
-            <p>Once the shift concludes, regroup the staff in the shift room.</p>
+            <p>Once the shift concludes, call everyone back to the shift room.</p>
             <div class="code-block">
                 "All staff members, please report to the shift room once your area is cleared."
             </div>
@@ -292,14 +291,27 @@
 
         <div id="page-sots" class="page-content">
             <h1>Star Of The Shift</h1>
-            <p>Reward the staff member who showed the best performance during the shift.</p>
+            <p>During the session, the Host and Co-Host must evaluate the performance of each staff member based on:</p>
+            <ul>
+                <li>Speed and accuracy in handling orders.</li>
+                <li>Politeness and professional behavior with customers.</li>
+                <li>Consistency in following rank-specific tasks.</li>
+            </ul>
+            <h3>Announcement Dialogue:</h3>
+            <div class="code-block">
+                "After reviewing your performance today, we have selected a Star of the Shift."<br>
+                "Today's Star of the Shift is... [Staff Name]! Congratulations!"
+            </div>
         </div>
 
         <div id="page-dismissal" class="page-content">
             <h1>Dismissal Time</h1>
-            <p>Final closing of the session.</p>
+            <p>The final step is to formally conclude the session and dismiss the staff.</p>
             <div class="code-block">
-                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift!"
+                "You are officially dismissed. Thank you for your hard work and for attending this Greggs UK shift. We hope to see you at the next one!"
+            </div>
+            <div class="hint">
+                <strong>Important:</strong> After dismissal, make sure to log the shift in the #shift-logs channel if required by your department.
             </div>
         </div>
 
